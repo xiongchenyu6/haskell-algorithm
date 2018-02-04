@@ -63,7 +63,7 @@ findBestRoute l a = fst (L.foldl (\acc v -> compareR acc (find acc v)) (intRoute
                     a
                   else
                     b
-    intRoute = (0,0)
+    intRoute = (1,0)
     intMap :: Map Point Status
     intMap = M.empty
 
@@ -82,7 +82,7 @@ findPath p@(y,x) array acc@((l,w),m) = getMax [button,left,right] top
                        else
                          getMax (xs) acc
     findAndMove a b v = case m M.!? (a,b) of
-      Just(l',w') -> ((l+l',w+w'-(current -v)),m)
+      Just(l',w') -> ((l+l'-1,w+w'-(current -v)),m) -- delete one overlaping vertex
       Nothing -> findPath (a,b) array ((l+1,w +(current -v)), updatedMap)
     updatedMap= M.insert p (l,w) m
     top = if y == 0 || tV >= current then
