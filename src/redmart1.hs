@@ -5,7 +5,6 @@ import           System.IO
 
 type Status = (Int,Int)
 type Point = (Int,Int)
-type Route = (Status,[Point])
 
 main = do
     contents <- readFile "/Users/xiongchenyu/github/haskell-algorithm/src/map.txt"
@@ -17,7 +16,7 @@ toArray :: [[Int]] -> Array Int (Array Int Int)
 toArray l = listArray (0,999) (listArray (0,999) <$>l)
 
 -- row col
-findInDegreeZero :: Int -> Int -> Array Int (Array Int Int) -> [(Int,Int)] -> [(Int,Int)]
+findInDegreeZero :: Int -> Int -> Array Int (Array Int Int) -> [Point] -> [Point]
 findInDegreeZero y@999 x@999 array acc = if testInDegree y x array then
                                   (y,x) : acc
                                 else
@@ -56,46 +55,50 @@ testInDegree y x array = all (current >) [top,button,left,right]
       else
         array A.! y A.! (x+1)
 
-findBestRoute :: [Point] -> Array Int (Array Int Int) -> Route
+findBestRoute :: [Point] -> Array Int (Array Int Int) -> Status
 findBestRoute l a = fst (L.foldl (\acc v -> compareR acc (find acc v)) (intRoute,intMap) l)
   where
     find acc v = findPath v a (intRoute,snd acc)
-    compareR a b = if fst (fst a)> fst (fst b) then
+    compareR a b = if (fst a)> (fst b) then
                     a
                   else
                     b
-    intRoute = ((0,0),[])
-    intMap :: Map Point Route
+    intRoute = (0,0)
+    intMap :: Map Point Status
     intMap = M.empty
 
 -- Use Map for dynamic programming to cache the path
-findPath :: Point -> Array Int (Array Int Int) -> (Route,Map Point Route) -> (Route, Map Point Route)
-findPath (y,x) array acc@(((l,w),r),m) = maximum [top,button,left,right]
+findPath :: Point -> Array Int (Array Int Int) -> (Status,Map Point Status) -> (Status, Map Point Status)
+findPath p@(y,x) array acc@((l,w),m) = getMax [button,left,right] top
   where
     current = array A.! y A.! x
     tV  = array A.! (y-1) A.! x
     bV = array A.! (y +1 ) A.! x
     lV = array A.! y A.! (x-1)
     rV = array A.! y A.! (x +1)
+    getMax [] acc = acc
+    getMax (x:xs) acc= if fst x > fst acc then
+                         getMax (xs) x
+                       else
+                         getMax (xs) acc
     findAndMove a b v = case m M.!? (a,b) of
-      Just((l',w'),r') -> (((l+l',w+w'-(current -v)),r++r'),m)
-      Nothing -> findPath (a,b) array (((l+1,w +(current -v)),r ++ [(y,x)]), updatedMap)
-    updatedMap= M.insert (y,x) ((l,w),r++[(y,x)]) m
-    edge = (((l,w),r ++[(y,x)]),m)
+      Just(l',w') -> ((l+l',w+w'-(current -v)),m)
+      Nothing -> findPath (a,b) array ((l+1,w +(current -v)), updatedMap)
+    updatedMap= M.insert p (l,w) m
     top = if y == 0 || tV >= current then
-            edge
+            acc
           else
             findAndMove (y-1) x tV
 
     button = if y == 999 || bV>= current then
-               edge
+               acc
              else
                findAndMove (y+1) x bV
     left = if x == 0 || lV >= current then
-             edge
+             acc
            else
                findAndMove y (x-1) lV
     right = if x == 999 || rV >= current then
-              edge
+              acc
             else
                findAndMove y (x+1) rV

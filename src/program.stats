@@ -1,25 +1,25 @@
 ./redmart1 +RTS -P -sprogram.stats 
- 742,577,886,088 bytes allocated in the heap
-  10,031,728,216 bytes copied during GC
-     409,936,136 bytes maximum residency (32 sample(s))
-       7,397,984 bytes maximum slop
-            1006 MB total memory in use (0 MB lost due to fragmentation)
+ 359,617,652,128 bytes allocated in the heap
+   5,539,947,000 bytes copied during GC
+     317,259,448 bytes maximum residency (25 sample(s))
+       7,371,232 bytes maximum slop
+             749 MB total memory in use (0 MB lost due to fragmentation)
 
                                      Tot time (elapsed)  Avg pause  Max pause
-  Gen  0     713063 colls,     0 par   24.502s  28.498s     0.0000s    0.8773s
-  Gen  1        32 colls,     0 par    0.006s   0.007s     0.0002s    0.0005s
+  Gen  0     345116 colls,     0 par   13.803s  16.297s     0.0000s    0.7273s
+  Gen  1        25 colls,     0 par    0.008s   0.008s     0.0003s    0.0010s
 
-  INIT    time    0.000s  (  0.003s elapsed)
-  MUT     time  568.122s  (614.934s elapsed)
-  GC      time   24.508s  ( 28.505s elapsed)
+  INIT    time    0.000s  (  0.004s elapsed)
+  MUT     time  233.530s  (259.647s elapsed)
+  GC      time   13.811s  ( 16.305s elapsed)
   RP      time    0.000s  (  0.000s elapsed)
   PROF    time    0.000s  (  0.000s elapsed)
-  EXIT    time    0.001s  (  0.017s elapsed)
-  Total   time  592.631s  (643.458s elapsed)
+  EXIT    time    0.001s  (  0.026s elapsed)
+  Total   time  247.343s  (275.981s elapsed)
 
-  %GC     time       4.1%  (4.4% elapsed)
+  %GC     time       5.6%  (5.9% elapsed)
 
-  Alloc rate    1,307,074,260 bytes per MUT second
+  Alloc rate    1,539,918,254 bytes per MUT second
 
-  Productivity  95.9% of total user, 95.6% of total elapsed
+  Productivity  94.4% of total user, 94.1% of total elapsed
 
