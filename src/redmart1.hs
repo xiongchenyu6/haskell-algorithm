@@ -5,33 +5,32 @@ import           System.IO
 
 type Status = (Int,Int)
 type Point = (Int,Int)
+type PathWithMap = (Status,Map Point Status)
 
 main = do
     contents <- readFile "/Users/xiongchenyu/github/haskell-algorithm/src/map.txt"
-    let array = toArray (tail ((fmap.fmap) (read::String -> Int) (words <$> (lines contents))))
+    let list = (fmap.fmap) (read::String -> Int) (words <$> lines contents)
+    let array = toArray (head .head $ list) (tail list)
     let tops = findInDegreeZero 0 0 array []
     print (findBestRoute tops array)
 
-toArray :: [[Int]] -> Array Int (Array Int Int)
-toArray l = listArray (0,999) (listArray (0,999) <$>l)
+toArray :: Int-> [[Int]] -> Array Int (Array Int Int)
+toArray n l = listArray (0,n-1) $ listArray (0,n-1) <$> l
 
 -- row col
 findInDegreeZero :: Int -> Int -> Array Int (Array Int Int) -> [Point] -> [Point]
-findInDegreeZero y@999 x@999 array acc = if testInDegree y x array then
-                                  (y,x) : acc
-                                else
-                                  acc
-findInDegreeZero y x@999 array acc = if testInDegree y x array then
-                              findInDegreeZero (y+1) 0 array ((y,x) : acc)
-                            else
-                              findInDegreeZero (y+1) 0 array acc
-findInDegreeZero y x array acc = if testInDegree y x array then
-                          findInDegreeZero y (x+1) array ((y,x): acc)
-                        else
-                          findInDegreeZero y (x+1) array acc
+findInDegreeZero y@999 x@999 array acc = selectIndegreeZero y x array acc
+findInDegreeZero y x@999 array acc = findInDegreeZero (y+1) 0 array $
+                                     selectIndegreeZero y x array acc
+findInDegreeZero y x array acc = findInDegreeZero y (x+1) array $
+                                     selectIndegreeZero y x array acc
 
-testInDegree :: Int -> Int -> Array Int (Array Int Int) -> Bool
-testInDegree y x array = all (current >) [top,button,left,right]
+
+selectIndegreeZero :: Int -> Int -> Array Int (Array Int Int) -> ([Point] -> [Point])
+selectIndegreeZero y x array = if all (current >) [top,button,left,right] then
+                           ((y,x) :)
+                         else
+                           id
   where
     current = array A.! y A.! x
     top =
@@ -56,31 +55,22 @@ testInDegree y x array = all (current >) [top,button,left,right]
         array A.! y A.! (x+1)
 
 findBestRoute :: [Point] -> Array Int (Array Int Int) -> Status
-findBestRoute l a = fst (L.foldl (\acc v -> compareR acc (find acc v)) (intRoute,intMap) l)
+findBestRoute l a = fst (L.foldl (\acc v -> comparePathMap acc (find acc v)) (intRoute,intMap) l)
   where
     find acc v = findPath v a (intRoute,snd acc)
-    compareR a b = if (fst a)> (fst b) then
-                    a
-                  else
-                    b
     intRoute = (1,0)
     intMap :: Map Point Status
     intMap = M.empty
 
 -- Use Map for dynamic programming to cache the path
-findPath :: Point -> Array Int (Array Int Int) -> (Status,Map Point Status) -> (Status, Map Point Status)
-findPath p@(y,x) array acc@((l,w),m) = getMax [button,left,right] top
+findPath :: Point -> Array Int (Array Int Int) -> PathWithMap -> PathWithMap
+findPath p@(y,x) array acc@((l,w),m) = L.foldl (comparePathMap) top [button,left,right]
   where
     current = array A.! y A.! x
     tV  = array A.! (y-1) A.! x
     bV = array A.! (y +1 ) A.! x
     lV = array A.! y A.! (x-1)
     rV = array A.! y A.! (x +1)
-    getMax [] acc = acc
-    getMax (x:xs) acc= if fst x > fst acc then
-                         getMax (xs) x
-                       else
-                         getMax (xs) acc
     findAndMove a b v = case m M.!? (a,b) of
       Just(l',w') -> ((l+l'-1,w+w'-(current -v)),m) -- delete one overlaping vertex
       Nothing -> findPath (a,b) array ((l+1,w +(current -v)), updatedMap)
@@ -89,7 +79,6 @@ findPath p@(y,x) array acc@((l,w),m) = getMax [button,left,right] top
             acc
           else
             findAndMove (y-1) x tV
-
     button = if y == 999 || bV>= current then
                acc
              else
@@ -102,3 +91,6 @@ findPath p@(y,x) array acc@((l,w),m) = getMax [button,left,right] top
               acc
             else
                findAndMove y (x+1) rV
+
+comparePathMap :: PathWithMap -> PathWithMap -> PathWithMap
+comparePathMap a b = if fst a> fst b then a else b
