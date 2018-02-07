@@ -11,19 +11,22 @@ main = do
     contents <- readFile "/Users/xiongchenyu/github/haskell-algorithm/src/map.txt"
     let list = (fmap.fmap) (read::String -> Int) (words <$> lines contents)
     let array = toArray (head .head $ list) (tail list)
-    let tops = findInDegreeZero 0 0 array []
+    let tops = findInDegreeZero array
     print (findBestRoute tops array)
 
 toArray :: Int-> [[Int]] -> Array Int (Array Int Int)
 toArray n l = listArray (0,n-1) $ listArray (0,n-1) <$> l
 
 -- row col
-findInDegreeZero :: Int -> Int -> Array Int (Array Int Int) -> [Point] -> [Point]
-findInDegreeZero y@999 x@999 array acc = selectIndegreeZero y x array acc
-findInDegreeZero y x@999 array acc = findInDegreeZero (y+1) 0 array $
-                                     selectIndegreeZero y x array acc
-findInDegreeZero y x array acc = findInDegreeZero y (x+1) array $
-                                     selectIndegreeZero y x array acc
+findInDegreeZero :: Array Int (Array Int Int) -> [Point]
+findInDegreeZero array = findInDegreeZero' 0 0 array []
+  where
+    findInDegreeZero' :: Int -> Int -> Array Int (Array Int Int) -> [Point] -> [Point]
+    findInDegreeZero' y@999 x@999 array acc = selectIndegreeZero y x array acc
+    findInDegreeZero' y x@999 array acc = findInDegreeZero' (y+1) 0 array $
+                                          selectIndegreeZero y x array acc
+    findInDegreeZero' y x array acc = findInDegreeZero' y (x+1) array $
+                                        selectIndegreeZero y x array acc
 
 
 selectIndegreeZero :: Int -> Int -> Array Int (Array Int Int) -> ([Point] -> [Point])
