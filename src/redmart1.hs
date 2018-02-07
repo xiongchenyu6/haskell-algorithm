@@ -1,3 +1,5 @@
+module RedMart1 where
+
 import           Data.Array.IArray as A
 import           Data.List         as L
 import           Data.Map          as M
