@@ -1,6 +1,6 @@
 module Main where
 
-import           Data.List  (break)
+import Data.List (break)
 
 type Name = String
 type Data = String
@@ -11,6 +11,7 @@ x = 10
 main :: IO (Maybe FSZipper)
 main = return $  fsTo "pics" (myDisk,[]) >>= fsTo "watermelon_smash.gif"
 
+myDrop :: (Ord t, Num t) => t -> [a] -> [a]
 myDrop n xs = if n <= 0 || null xs
   then xs
  else myDrop (n - 1) (tail xs)

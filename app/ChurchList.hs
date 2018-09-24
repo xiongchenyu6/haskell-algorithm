@@ -1,5 +1,7 @@
 {-# LANGUAGE RankNTypes #-}
 
+module ChurchList where
+
 import Prelude
 import Control.Applicative
 import Data.Foldable (Foldable)

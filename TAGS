@@ -1,0 +1,506 @@
+
+./src/avl.hs,713
+module AVLTree AVLTree0,1
+data BT BT1,2
+data BT = L L1,2
+data BT = L | N N1,2
+empty empty4,5
+depth depth8,9
+inorder inorder11,12
+inorder inorder12,13
+left left15,16
+right right16,17
+value value17,18
+btmin btmin19,20
+balFactor balFactor22,23
+balFactor balFactor23,24
+search search26,27
+search search27,28
+getelem getelem35,36
+getelem getelem36,37
+balanceLL balanceLL44,45
+balanceLR balanceLR45,46
+balanceRL balanceRL46,47
+balanceRR balanceRR47,48
+insert insert50,51
+insert insert51,52
+delete delete64,65
+delete delete65,66
+load load83,84
+load load84,85
+unload unload87,88
+unload unload88,89
+sort sort91,92
+sort sort92,93
+isBalanced isBalanced94,95
+
+./src/sraple.hs,617
+url url9,10
+opts opts11,12
+e e13,14
+m m15,16
+d d17,18
+exampleHtml exampleHtml19,20
+exampleHtml exampleHtml20,21
+\ \22,23
+main main43,44
+main main44,45
+catComment catComment51,52
+catComment catComment52,53
+data CategoryCategory63,64
+    = Title Title64,65
+    | Contents Contents65,66
+sc:sc68,69
+sc sc69,70
+title title74,75
+content content78,79
+categorise categorise82,83
+categorise categorise83,84
+fd fd88,89
+dataTree dataTree94,95
+dataTree dataTree95,96
+a a97,98
+a a98,99
+b b100,101
+b b101,102
+lastElement lastElement103,104
+lastElement lastElement104,105
+
+./src/parser.hs,4478
+module Main Main1,2
+type Env Env10,11
+data LispVal LispVal12,13
+data LispVal = Atom Atom12,13
+            | List List13,14
+            | DottedList DottedList14,15
+            | Number Number15,16
+            | String String16,17
+            | Bool Bool17,18
+            | IOFunc IOFunc18,19
+            | Port Port19,20
+            | PrimitiveFunc PrimitiveFunc20,21
+            | Func Func21,22
+            | Func { params params21,22
+            | Func { params :: [String], vararg vararg21,22
+                     body body22,23
+                     body :: [LispVal], closure closure22,23
+data LispError LispError24,25
+data LispError = NumArgs NumArgs24,25
+               | TypeMismatch TypeMismatch25,26
+               | Parser Parser26,27
+               | BadSpecialForm BadSpecialForm27,28
+               | NotFunction NotFunction28,29
+               | UnboundVar UnboundVar29,30
+               | Default Default30,31
+instance instance32,33
+type IOThrowsError IOThrowsError35,36
+type ThrowsError ThrowsError36,37
+data Unpacker Unpacker38,39
+data Unpacker = forall forall38,39
+liftThrows liftThrows40,41
+liftThrows liftThrows41,42
+runIOThrows runIOThrows44,45
+runIOThrows runIOThrows45,46
+nullEnv nullEnv47,48
+nullEnv nullEnv48,49
+isBound isBound50,51
+isBound isBound51,52
+getVar getVar53,54
+getVar getVar54,55
+setVar setVar59,60
+setVar setVar60,61
+defineVar defineVar66,67
+defineVar defineVar67,68
+bindVars bindVars77,78
+bindVars bindVars78,79
+makeFunc makeFunc83,84
+makeNormalFunc makeNormalFunc84,85
+makeVarArgs makeVarArgs85,86
+trapError trapError87,88
+extractValue extractValue89,90
+extractValue extractValue90,91
+parseString parseString92,93
+parseString parseString93,94
+escapedChars escapedChars99,100
+escapedChars escapedChars100,101
+showError showError105,106
+showError showError106,107
+flushStr flushStr115,116
+flushStr flushStr116,117
+readPrompt readPrompt118,119
+readPrompt readPrompt119,120
+evalAndPrint evalAndPrint121,122
+evalAndPrint evalAndPrint122,123
+evalString evalString124,125
+evalString evalString125,126
+until_ until_127,128
+until_ until_128,129
+primitiveBindings primitiveBindings134,135
+primitiveBindings primitiveBindings135,136
+runOne runOne139,140
+runOne runOne140,141
+runRepl runRepl145,146
+runRepl runRepl146,147
+main main148,149
+main main149,150
+symbol symbol152,153
+symbol symbol153,154
+spaces spaces155,156
+spaces spaces156,157
+readOrThrow readOrThrow158,159
+readOrThrow readOrThrow159,160
+readExpr readExpr163,164
+readExprList readExprList164,165
+parseAtom parseAtom166,167
+parseAtom parseAtom167,168
+parseExpr parseExpr176,177
+parseExpr parseExpr177,178
+parseNumber parseNumber186,187
+parseNumber parseNumber187,188
+parseList parseList189,190
+parseList parseList190,191
+parseDottedList parseDottedList192,193
+parseDottedList parseDottedList193,194
+parseQuoted parseQuoted198,199
+parseQuoted parseQuoted199,200
+showVal showVal204,205
+showVal showVal205,206
+unwordsList unwordsList221,222
+unwordsList unwordsList222,223
+eval eval224,225
+eval eval225,226
+apply apply258,259
+apply apply260,261
+primitives primitives274,275
+primitives primitives275,276
+ioPrimitives ioPrimitives302,303
+ioPrimitives ioPrimitives303,304
+numericBinop numericBinop313,314
+numericBinop numericBinop314,315
+unpackNum unpackNum318,319
+unpackNum unpackNum319,320
+boolBinop boolBinop327,328
+boolBinop boolBinop328,329
+numBoolBinop numBoolBinop334,335
+strBoolBinop strBoolBinop335,336
+boolBoolBinop boolBoolBinop336,337
+unpackStr unpackStr338,339
+unpackStr unpackStr339,340
+unpackBool unpackBool344,345
+unpackBool unpackBool345,346
+car car348,349
+car car349,350
+cdr cdr354,355
+cdr cdr355,356
+cons cons361,362
+cons cons362,363
+eqv eqv368,369
+eqv eqv369,370
+unpackEquals unpackEquals382,383
+unpackEquals unpackEquals383,384
+equal equal389,390
+equal equal390,391
+applyProc applyProc397,398
+applyProc applyProc398,399
+makePort makePort401,402
+makePort makePort402,403
+closePort closePort404,405
+closePort closePort405,406
+readProc readProc408,409
+readProc readProc409,410
+writeProc writeProc412,413
+writeProc writeProc413,414
+readContents readContents416,417
+readContents readContents417,418
+load load419,420
+load load420,421
+readAll readAll422,423
+readAll readAll423,424
+
+./src/mergeSort.hs,169
+unsortList unsortList0,1
+mergeSort mergeSort3,4
+mergeSort mergeSort4,5
+merge merge14,15
+merge merge15,16
+quickSort quickSort23,24
+quickSort quickSort24,25
+
+./src/dependentType.hs,997
+data ZZ6,7
+data S S7,8
+data Nat Nat9,10
+    Zero Zero10,11
+    Succ Succ11,12
+type family family13,14
+type instance instance14,15
+type instance Z Z14,15
+type instance instance15,16
+type instance S S15,16
+type family family17,18
+type instance instance18,19
+type instance instance19,20
+type family family21,22
+type instance instance22,23
+type instance n n22,23
+type instance instance23,24
+type instance instance24,25
+type family family26,27
+type instance instance27,28
+type instance instance28,29
+type instance instance29,30
+type family family31,32
+type instance instance32,33
+type instance instance33,34
+type instance instance34,35
+(+)+37,38
+Zero Zero38,39
+(S(39,40
+(*)*42,43
+data Vec Vec46,47
+    VNil VNil47,48
+    VCons VCons48,49
+(++)++50,51
+VNil VNil51,52
+VCons VCons52,53
+repeat repeat54,55
+repeat repeat55,56
+headV headV59,60
+headV headV60,61
+tailV tailV62,63
+tailV tailV63,64
+zip zip65,66
+zip zip66,67
+
+./src/practical-resursion-schemes.hs,739
+data NatF NatF6,7
+    ZeroFZeroF7,8
+  | SuccF SuccF8,9
+data ListF' ListF'11,12
+    NilFNilF12,13
+  | ConsF ConsF13,14
+data TreeF TreeF16,17
+    EmptyFEmptyF17,18
+  | LeafF LeafF18,19
+  | NodeF NodeF19,20
+type Nat Nat22,23
+type List List24,25
+type List a a24,25
+type Tree Tree26,27
+zero zero28,29
+zero zero29,30
+succ succ31,32
+succ succ32,33
+nil nil34,35
+nil nil35,36
+cons cons37,38
+cons cons38,39
+natsum natsum40,41
+natsum natsum41,42
+filterL filterL45,46
+filterL filterL46,47
+nat nat52,53
+nat nat53,54
+natfac natfac58,59
+natfac natfac59,60
+natpred natpred63,64
+natpred natpred64,65
+tailL tailL68,69
+tailL tailL69,70
+mergeSort mergeSort73,74
+mergeSort mergeSort74,75
+
+./src/monedT.hs,939
+data ExceptT ExceptT8,9
+data ExceptT e m a = ExceptT ExceptT8,9
+    runExceptT runExceptT9,10
+instance instance12,13
+liftEither liftEither23,24
+liftEither liftEither24,25
+lift lift26,27
+lift lift27,28
+throwE throwE29,30
+throwE throwE30,31
+catchE catchE32,33
+catchE catchE33,34
+data LoginError LoginError41,42
+data LoginError = InvalidEmailInvalidEmail41,42
+                | NoSuchUserNoSuchUser42,43
+                | WrongPasswordWrongPassword43,44
+users users45,46
+users users46,47
+main main50,51
+main main51,52
+loginDialogue loginDialogue55,56
+loginDialogue loginDialogue56,57
+wrongPasswordHandler wrongPasswordHandler61,62
+wrongPasswordHandler wrongPasswordHandler62,63
+printError printError67,68
+printError printError68,69
+userLogin userLogin77,78
+userLogin userLogin78,79
+getToken getToken88,89
+getToken getToken89,90
+getDomain getDomain94,95
+getDomain getDomain95,96
+
+./src/Main.hs,799
+module Main Main0,1
+type Name Name4,5
+type Data Data5,6
+data FSItem FSItem6,7
+data FSItem = File File6,7
+data FSItem = File Name Data | Folder Folder6,7
+x x8,9
+main main10,11
+main main11,12
+myDrop myDrop13,14
+data List List17,18
+data List a = Cons Cons17,18
+data List a = Cons a (List a) | Nil Nil17,18
+myFoldl myFoldl19,20
+myFoldl myFoldl20,21
+fromList fromList22,23
+fromList fromList23,24
+myDisk myDisk26,27
+myDisk myDisk27,28
+data FSCrumb FSCrumb47,48
+data FSCrumb = FSCrumb FSCrumb47,48
+type FSZipper FSZipper48,49
+nameIs nameIs50,51
+nameIs nameIs51,52
+fsUp fsUp54,55
+fsUp fsUp55,56
+fsTo fsTo58,59
+fsTo fsTo59,60
+fsRename fsRename65,66
+fsRename fsRename66,67
+fsNewFile fsNewFile69,70
+fsNewFile fsNewFile70,71
+f f75,76
+f f76,77
+
+./src/Huffman.hs,574
+module Huffman Huffman0,1
+class Eq a => Bits Bits7,8
+class Eq a => Bits Bits7,8
+  zer zer8,9
+  one one9,10
+instance instance11,12
+type Codemap Codemap19,20
+type Codemap a a19,20
+data HTree HTree21,22
+data HTree = Leaf Leaf21,22
+           | Fork Fork22,23
+weight:weight25,26
+weight weight26,27
+merge merge29,30
+merge merge30,31
+stringToTree stringToTree32,33
+stringToTree stringToTree33,34
+buildCodemap buildCodemap42,43
+buildCodemap buildCodemap43,44
+encode encode48,49
+encode encode49,50
+decode decode51,52
+decode decode52,53
+
+./src/ChurchList.hs,333
+newtype ChurchList ChurchList14,15
+    ChurchList ChurchList15,16
+    ChurchList { runList runList15,16
+fromList fromList18,19
+fromList fromList19,20
+toList toList22,23
+toList toList23,24
+nil nil26,27
+nil nil27,28
+cons cons32,33
+cons cons33,34
+append append37,38
+append append38,39
+instance instance41,42
+
+./src/thread.hs,478
+main main2,3
+data Thread Thread31,32
+data Thread m r = Atomic Atomic31,32
+data Thread m r = Atomic (m (Thread m r)) | Return Return31,32
+atomic atomic33,34
+atomic atomic34,35
+instance instance36,37
+thread1 thread148,49
+thread1 thread149,50
+thread2 thread251,52
+thread2 thread252,53
+interleave interleave56,57
+interleave interleave58,59
+runThread runThread65,66
+runThread runThread66,67
+interleave' interleave'70,71
+interleave' interleave'72,73
+
+./src/cellularAutomate.hs,306
+module Ca Ca0,1
+data Tree Tree4,5
+data Tree = Node Node4,5
+data Tree = Node { left:left4,5
+data Tree = Node { left::Tree, mid:mid4,5
+data Tree = Node { left::Tree, mid::Char, right:right4,5
+data Tree = Node { left::Tree, mid::Char, right::Tree } | NilNil4,5
+value value7,8
+value value8,9
+
+./src/blackAndWhite.hs,293
+target target4,5
+target target5,6
+main main22,23
+compareA compareA29,30
+compareA compareA30,31
+move move33,34
+move move34,35
+getAllNextMove getAllNextMove45,46
+getAllNextMove getAllNextMove46,47
+click click48,49
+click click49,50
+toggle toggle58,59
+toggle toggle59,60
+
+./src/Polymorphism.hs,267
+module Polymorphism Polymorphism0,1
+data Item Item3,4
+data Item  =Singular Singular3,4
+data Item  =Singular Int | Multi Multi3,4
+instance instance5,6
+encodeList encodeList9,10
+encodeList encodeList10,11
+itemList itemList12,13
+itemList itemList13,14
+
+./src/redmart1.hs,543
+module RedMart1 RedMart10,1
+type Status Status7,8
+type Point Point8,9
+type PathWithMap PathWithMap9,10
+main main11,12
+toArray toArray18,19
+toArray toArray19,20
+findInDegreeZero findInDegreeZero22,23
+findInDegreeZero findInDegreeZero23,24
+selectIndegreeZero selectIndegreeZero33,34
+selectIndegreeZero selectIndegreeZero34,35
+findBestRoute findBestRoute61,62
+findBestRoute findBestRoute62,63
+findPath findPath70,71
+findPath findPath71,72
+comparePathMap comparePathMap99,100
+comparePathMap comparePathMap100,101
+
+./src/findDuplicate.hs,0
+
+./src/rotCut.hs,115
+test test0,1
+permutation permutation2,3
+permutation permutation3,4
+insert' insert'6,7
+insert' insert'7,8
