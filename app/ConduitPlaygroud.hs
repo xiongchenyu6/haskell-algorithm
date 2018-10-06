@@ -1,4 +1,6 @@
 {-# LANGUAGE ExistentialQuantification #-}
+module ConduitPlaygroud where
+
 import           Conduit
 import           Control.Monad
 import           Data.Conduit.List
