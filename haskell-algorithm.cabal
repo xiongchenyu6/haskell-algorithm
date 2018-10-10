@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4486fa64a92d17e20782f9fa20ad62f0c0f676483833554ffc13fe0648085a36
+-- hash: ac54ef7e90cac5c7e5899ca9ec8e6900992419450a33af997af6651ad56bd988
 
 name:           haskell-algorithm
 version:        0.1.0.0
@@ -53,8 +53,8 @@ executable haskell-algorithm-exe
   other-modules:
       ChurchList
       ConduitPlaygroud
-      Exception
       Huffman
+      MonadBase
       Polymorphism
       Paths_haskell_algorithm
   hs-source-dirs:
