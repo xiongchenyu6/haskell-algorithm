@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ac54ef7e90cac5c7e5899ca9ec8e6900992419450a33af997af6651ad56bd988
+-- hash: acff5da7423603048e98891a584728fc31c3b0e62221d483bac29f0075ad4df2
 
 name:           haskell-algorithm
 version:        0.1.0.0
@@ -32,7 +32,8 @@ library
   hs-source-dirs:
       src
   build-depends:
-      array
+      HList
+    , array
     , async
     , base >=4.7 && <5
     , conduit
@@ -56,12 +57,14 @@ executable haskell-algorithm-exe
       Huffman
       MonadBase
       Polymorphism
+      PrependToTuple
       Paths_haskell_algorithm
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      array
+      HList
+    , array
     , async
     , base >=4.7 && <5
     , conduit
@@ -87,7 +90,8 @@ test-suite haskell-algorithm-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      array
+      HList
+    , array
     , async
     , base >=4.7 && <5
     , conduit
