@@ -1,0 +1,109 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: acff5da7423603048e98891a584728fc31c3b0e62221d483bac29f0075ad4df2
+
+name:           haskell-algorithm
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-algorithm#readme>
+homepage:       https://github.com/githubuser/haskell-algorithm#readme
+bug-reports:    https://github.com/githubuser/haskell-algorithm/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2018 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/haskell-algorithm
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_haskell_algorithm
+  hs-source-dirs:
+      src
+  build-depends:
+      HList
+    , array
+    , async
+    , base >=4.7 && <5
+    , conduit
+    , containers
+    , curl
+    , ghc-prim
+    , lens
+    , mtl
+    , parsec
+    , pretty-simple >=2.0
+    , resourcet
+    , scalpel
+    , stm
+  default-language: Haskell2010
+
+executable haskell-algorithm-exe
+  main-is: Main.hs
+  other-modules:
+      ChurchList
+      ConduitPlaygroud
+      Huffman
+      MonadBase
+      Polymorphism
+      PrependToTuple
+      Paths_haskell_algorithm
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HList
+    , array
+    , async
+    , base >=4.7 && <5
+    , conduit
+    , containers
+    , curl
+    , ghc-prim
+    , haskell-algorithm
+    , lens
+    , mtl
+    , parsec
+    , pretty-simple >=2.0
+    , resourcet
+    , scalpel
+    , stm
+  default-language: Haskell2010
+
+test-suite haskell-algorithm-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskell_algorithm
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HList
+    , array
+    , async
+    , base >=4.7 && <5
+    , conduit
+    , containers
+    , curl
+    , ghc-prim
+    , haskell-algorithm
+    , lens
+    , mtl
+    , parsec
+    , pretty-simple >=2.0
+    , resourcet
+    , scalpel
+    , stm
+  default-language: Haskell2010

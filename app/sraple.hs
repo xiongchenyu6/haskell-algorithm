@@ -11,7 +11,9 @@ url = "https://seekingalpha.com/article/4132283-jabils-jbl-ceo-mark-mondello-q1-
 
 opts = [ CurlUserAgent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" ]
 
-m content = scrapeURL "https://www.baidu.com" content
+e content = scrapeURL "https://www.baidu.com" content
+
+m content = scrapeURL "https://www.linkedin.com/in/chenyu-xiong-0abb6a91/" content
 
 d content= scrapeURL "https://seekingalpha.com/article/4132283-jabils-jbl-ceo-mark-mondello-q1-2018-results-earnings-call-transcript?all=true&find=conference%2520call" content
 
