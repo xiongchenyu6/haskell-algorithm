@@ -1,4 +1,5 @@
 -- file: ioref-supply.hs
+module Concurrent where
 import Data.IORef
 
 type Supply = IORef Int

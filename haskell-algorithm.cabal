@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: acff5da7423603048e98891a584728fc31c3b0e62221d483bac29f0075ad4df2
+-- hash: 494db08d1031279c074323382101c25bc910d4d4fc1fdb14bd14330763fd0f99
 
 name:           haskell-algorithm
 version:        0.1.0.0
@@ -47,15 +47,19 @@ library
     , resourcet
     , scalpel
     , stm
+    , template-haskell
   default-language: Haskell2010
 
 executable haskell-algorithm-exe
   main-is: Main.hs
   other-modules:
       ChurchList
+      Concurrent
       ConduitPlaygroud
+      ConstSplices
       Huffman
       MonadBase
+      Mysplices
       Polymorphism
       PrependToTuple
       Paths_haskell_algorithm
@@ -79,6 +83,7 @@ executable haskell-algorithm-exe
     , resourcet
     , scalpel
     , stm
+    , template-haskell
   default-language: Haskell2010
 
 test-suite haskell-algorithm-test
@@ -106,4 +111,5 @@ test-suite haskell-algorithm-test
     , resourcet
     , scalpel
     , stm
+    , template-haskell
   default-language: Haskell2010

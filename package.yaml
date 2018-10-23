@@ -35,6 +35,7 @@ dependencies:
 - stm
 - ghc-prim
 - HList
+- template-haskell
 
 library:
   source-dirs: src
