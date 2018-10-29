@@ -1,15 +1,25 @@
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE EmptyDataDeriving #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 
-data Z
-data S n
+import Data.Kind
+import qualified Prelude as P(read, (+), Show, show)
+
+data Z deriving P.Show
+data S n deriving P.Show
 
 data Nat a where
     Zero :: Nat Z
     Succ :: Nat a -> Nat (S a)
+
+instance P.Show (Nat a) where
+  show Zero = "0"
+  show (Succ a) = P.show ( 1 P.+ (P.read (P.show a)))
 
 type family (:+:) (n :: *) (m :: *) :: *
 type instance Z   :+: m = m

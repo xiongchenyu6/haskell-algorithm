@@ -46,8 +46,6 @@ data LoginError = InvalidEmail
 users :: Map Text Text
 users = Map.fromList [("example.com", "qwerty123"), ("localhost", "password")]
 
-
-
 main :: IO ()
 main = do
   runExceptT loginDialogue
@@ -72,8 +70,6 @@ printError err = do
     NoSuchUser -> "No user with that email exists."
     InvalidEmail -> "Invalid email address entered."
   throwE err
-
-
 
 userLogin :: ExceptT LoginError IO Text
 userLogin = do

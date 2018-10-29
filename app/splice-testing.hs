@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
-import MySplices
+import Mysplices
 import Control.Monad (forM)
 import ConstSplices
 import Language.Haskell.TH

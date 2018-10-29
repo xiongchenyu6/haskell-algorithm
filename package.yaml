@@ -36,6 +36,11 @@ dependencies:
 - ghc-prim
 - HList
 - template-haskell
+- terminal-progress-bar
+- ansi-terminal
+- async
+- random
+- text
 
 library:
   source-dirs: src
