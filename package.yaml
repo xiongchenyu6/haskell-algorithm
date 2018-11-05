@@ -41,6 +41,10 @@ dependencies:
 - async
 - random
 - text
+- recursion-schemes
+- profunctors
+- data-ordlist
+- free
 
 library:
   source-dirs: src

@@ -1,0 +1,543 @@
+
+./Setup.hs,15
+main main1,2
+
+./src/Lib.hs,42
+module LibLib0,1
+someFunc someFunc4,5
+
+./src/CBasic.hs,177
+evil evil14,15
+main main19,20
+getResult1 getResult122,23
+getResult2 getResult229,30
+aaaa aaaa37,38
+bracket bracket42,43
+waitAnyNoExpCancel waitAnyNoExpCancel50,51
+
+./app/findDuplicate.hs,0
+
+./app/parser.hs,3092
+module Main Main1,2
+type Env Env10,11
+data LispVal LispVal12,13
+data LispVal = Atom Atom12,13
+            | List List13,14
+            | DottedList DottedList14,15
+            | Number Number15,16
+            | String String16,17
+            | Bool Bool17,18
+            | IOFunc IOFunc18,19
+            | Port Port19,20
+            | PrimitiveFunc PrimitiveFunc20,21
+            | Func Func21,22
+            | Func { params params21,22
+            | Func { params :: [String], vararg vararg21,22
+                     body body22,23
+                     body :: [LispVal], closure closure22,23
+data LispError LispError24,25
+data LispError = NumArgs NumArgs24,25
+               | TypeMismatch TypeMismatch25,26
+               | Parser Parser26,27
+               | BadSpecialForm BadSpecialForm27,28
+               | NotFunction NotFunction28,29
+               | UnboundVar UnboundVar29,30
+               | Default Default30,31
+instance Show Show LispVal32,33
+instance Show LispVal where show show32,33
+instance Show Show LispError33,34
+instance Show LispError where show show33,34
+type IOThrowsError IOThrowsError35,36
+type ThrowsError ThrowsError36,37
+data Unpacker Unpacker38,39
+data Unpacker = forall forall38,39
+liftThrows liftThrows40,41
+runIOThrows runIOThrows44,45
+nullEnv nullEnv47,48
+isBound isBound50,51
+getVar getVar53,54
+setVar setVar59,60
+defineVar defineVar66,67
+bindVars bindVars77,78
+makeFunc makeFunc83,84
+makeNormalFunc makeNormalFunc84,85
+makeVarArgs makeVarArgs85,86
+trapError trapError87,88
+extractValue extractValue89,90
+parseString parseString92,93
+escapedChars escapedChars99,100
+showError showError105,106
+flushStr flushStr115,116
+readPrompt readPrompt118,119
+evalAndPrint evalAndPrint121,122
+evalString evalString124,125
+until_ until_127,128
+primitiveBindings primitiveBindings134,135
+runOne runOne139,140
+runRepl runRepl145,146
+main main148,149
+symbol symbol152,153
+spaces spaces155,156
+readOrThrow readOrThrow158,159
+readExpr readExpr163,164
+readExprList readExprList164,165
+parseAtom parseAtom166,167
+parseExpr parseExpr176,177
+parseNumber parseNumber186,187
+parseList parseList189,190
+parseDottedList parseDottedList192,193
+parseQuoted parseQuoted198,199
+showVal showVal204,205
+unwordsList unwordsList221,222
+eval eval224,225
+apply apply258,259
+primitives primitives274,275
+ioPrimitives ioPrimitives302,303
+numericBinop numericBinop313,314
+unpackNum unpackNum318,319
+boolBinop boolBinop327,328
+numBoolBinop numBoolBinop334,335
+strBoolBinop strBoolBinop335,336
+boolBoolBinop boolBoolBinop336,337
+unpackStr unpackStr338,339
+unpackBool unpackBool344,345
+car car348,349
+cdr cdr354,355
+cons cons361,362
+eqv eqv368,369
+unpackEquals unpackEquals382,383
+equal equal389,390
+applyProc applyProc397,398
+makePort makePort401,402
+closePort closePort404,405
+readProc readProc408,409
+writeProc writeProc412,413
+readContents readContents416,417
+load load419,420
+readAll readAll422,423
+
+./app/Huffman.hs,477
+module Huffman Huffman0,1
+class Eq a => Bits Bits7,8
+  zer zer8,9
+  one one9,10
+instance Bits Bits Int11,12
+  zer zer12,13
+  one one13,14
+instance Bits Bits Bool15,16
+  zer zer16,17
+  one one17,18
+type Codemap Codemap19,20
+data HTree HTree21,22
+data HTree = Leaf Leaf21,22
+           | Fork Fork22,23
+weight:weight25,26
+merge merge29,30
+stringToTree stringToTree32,33
+buildCodemap buildCodemap42,43
+encode encode48,49
+decode decode51,52
+
+./app/sraple.hs,416
+url url9,10
+opts opts11,12
+e e13,14
+m m15,16
+d d17,18
+exampleHtml exampleHtml19,20
+\ \22,23
+main main43,44
+catComment catComment51,52
+data CategoryCategory63,64
+    = Title Title64,65
+    | Contents Contents65,66
+sc:sc68,69
+title title74,75
+content content78,79
+categorise categorise82,83
+fd fd88,89
+dataTree dataTree94,95
+a a97,98
+b b100,101
+lastElement lastElement103,104
+
+./app/thread.hs,585
+main main2,3
+data Thread Thread31,32
+data Thread m r = Atomic Atomic31,32
+data Thread m r = Atomic (m (Thread m r)) | Return Return31,32
+atomic atomic33,34
+instance (F(Functor m) => Functor (Thread m)36,37
+  fmap fmap37,38
+instance (A(Applicative m) => Applicative (Thread m)39,40
+  pure pure40,41
+  (<(<*>)41,42
+instance (M(Monad m) => Monad (Thread m)43,44
+    return return44,45
+    (A(Atomicm)45,46
+    (R(Returnr)46,47
+thread1 thread148,49
+thread2 thread251,52
+interleave interleave56,57
+runThread runThread65,66
+interleave' interleave'70,71
+
+./app/blackAndWhite.hs,155
+target target4,5
+main main22,23
+compareA compareA29,30
+move move33,34
+getAllNextMove getAllNextMove45,46
+click click48,49
+toggle toggle58,59
+
+./app/ChurchList.hs,388
+newtype ChurchList ChurchList16,17
+    ChurchList { runList runList17,18
+fromList fromList20,21
+toList toList24,25
+nil nil28,29
+cons cons34,35
+append append39,40
+instance Functor Functor ChurchList43,44
+    fmap fmap44,45
+instance Foldable Foldable ChurchList47,48
+    foldr foldr48,49
+instance Traversable Traversable ChurchList50,51
+    traverse traverse51,52
+
+./app/Concurrent.hs,109
+module Concurrent Concurrent1,2
+type Supply Supply4,5
+createSupply createSupply6,7
+newUID newUID9,10
+
+./app/PrependToTuple.hs,2464
+module PrependToTuple PrependToTuple8,9
+main main14,15
+class HLst HLst23,24
+    toHList toHList25,26
+    fromHList fromHList27,28
+instance HLst HLst (a1, a2) (HList '[a1, a2])31,32
+    toHList toHList32,33
+    fromHList fromHList33,34
+instance HLst HLst (a1, a2, a3) (HList '[a1, a2, a3])35,36
+    toHList toHList36,37
+    fromHList fromHList37,38
+instance HLst HLst (a1, a2, a3, a4) (HList '[a1, a2, a3, a4])39,40
+    toHList toHList40,41
+    fromHList fromHList41,42
+instance HLst HLst (a1, a2, a3, a4, a5) (HList '[a1, a2, a3, a4, a5])43,44
+    toHList toHList44,45
+    fromHList fromHList45,46
+instance HLst HLst (a1, a2, a3, a4, a5, a6) (HList '[a1, a2, a3, a4, a5, a6])47,48
+    toHList toHList48,49
+    fromHList fromHList49,50
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7) (HList '[a1, a2, a3, a4, a5, a6, a7])51,52
+    toHList toHList52,53
+    fromHList fromHList53,54
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8) (HList '[a1, a2, a3, a4, a5, a6, a7, a8])55,56
+    toHList toHList56,57
+    fromHList fromHList57,58
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9])59,60
+    toHList toHList60,61
+    fromHList fromHList61,62
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10])63,64
+    toHList toHList64,65
+    fromHList fromHList65,66
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11])67,68
+    toHList toHList68,69
+    fromHList fromHList69,70
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12])71,72
+    toHList toHList72,73
+    fromHList fromHList73,74
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13])75,76
+    toHList toHList76,77
+    fromHList fromHList77,78
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14])79,80
+    toHList toHList80,81
+    fromHList fromHList81,82
+instance HLst HLst (a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15) (HList '[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15])83,84
+    toHList toHList84,85
+    fromHList fromHList85,86
+
+./app/avl.hs,522
+module AVLTree AVLTree0,1
+data BT BT1,2
+data BT = L L1,2
+data BT = L | N N1,2
+empty empty4,5
+depth depth8,9
+inorder inorder11,12
+left left15,16
+right right16,17
+value value17,18
+btmin btmin19,20
+balFactor balFactor22,23
+search search26,27
+getelem getelem35,36
+balanceLL balanceLL44,45
+balanceLR balanceLR45,46
+balanceRL balanceRL46,47
+balanceRR balanceRR47,48
+insert insert50,51
+delete delete64,65
+load load83,84
+unload unload87,88
+sort sort91,92
+isBalanced isBalanced94,95
+
+./app/ConstSplices.hs,146
+module ConstSplices ConstSplices2,3
+constN constN10,11
+constExp constExp16,17
+deriveSetters deriveSetters21,22
+setterDec setterDec33,34
+
+./app/profunctor.hs,237
+type Limits Limits6,7
+data Limits' Limits'7,8
+data Limits' a b = LimitsLimits7,8
+instance Profunctor Profunctor Limits'11,12
+    dimap dimap12,13
+maybeLimit maybeLimit17,18
+millionsLimit millionsLimit20,21
+main main22,23
+
+./app/Main.hs,606
+module Main Main0,1
+type Name Name4,5
+type Data Data5,6
+data FSItem FSItem6,7
+data FSItem = File File6,7
+data FSItem = File Name Data | Folder Folder6,7
+x x8,9
+main main10,11
+myDrop myDrop13,14
+data List List18,19
+data List a = Cons Cons18,19
+data List a = Cons a (List a) | Nil Nil18,19
+myFoldl myFoldl20,21
+fromList fromList23,24
+myDisk myDisk27,28
+data FSCrumb FSCrumb48,49
+data FSCrumb = FSCrumb FSCrumb48,49
+type FSZipper FSZipper49,50
+nameIs nameIs51,52
+fsUp fsUp55,56
+fsTo fsTo59,60
+fsRename fsRename66,67
+fsNewFile fsNewFile70,71
+x x74,75
+f f76,77
+
+./app/benchmark.hs,108
+vec vec7,8
+mutableUpdateIO mutableUpdateIO10,11
+mutableUpdateST mutableUpdateST17,18
+main main23,24
+
+./app/monedT.hs,868
+data ExceptT ExceptT8,9
+data ExceptT e m a = ExceptT ExceptT8,9
+    runExceptT runExceptT9,10
+instance Functor Functor m => Functor (ExceptT e m)12,13
+  fmap fmap13,14
+instance Applicative Applicative m => Applicative (ExceptT e m)15,16
+  pure pure16,17
+  f f17,18
+instance Monad Monad m => Monad (ExceptT e m)19,20
+  return return20,21
+  x x21,22
+liftEither liftEither23,24
+lift lift26,27
+throwE throwE29,30
+catchE catchE32,33
+data LoginError LoginError41,42
+data LoginError = InvalidEmailInvalidEmail41,42
+                | NoSuchUserNoSuchUser42,43
+                | WrongPasswordWrongPassword43,44
+users users45,46
+main main48,49
+loginDialogue loginDialogue53,54
+wrongPasswordHandler wrongPasswordHandler59,60
+printError printError65,66
+userLogin userLogin73,74
+getToken getToken84,85
+getDomain getDomain90,91
+
+./app/randomDie.hs,657
+data Die Die6,7
+    DieOneDieOne7,8
+  | DieTwoDieTwo8,9
+  | DieThreeDieThree9,10
+  | DieFourDieFour10,11
+  | DieFiveDieFive11,12
+  | DieSixDieSix12,13
+intToDie intToDie15,16
+rollDie rollDie27,28
+rollDieThreeTimes' rollDieThreeTimes'32,33
+infiniteDie infiniteDie36,37
+nDie nDie39,40
+newtype Moi Moi42,43
+newtype Moi s a = Moi { runMoi runMoi42,43
+instance Functor Functor (Moi s)44,45
+  fmap fmap45,46
+instance Applicative Applicative (Moi s)48,49
+  pure pure49,50
+  (<(<*>)52,53
+  (M(Moif)53,54
+instance Monad Monad (Moi s)57,58
+  return return58,59
+  (>(>>=)59,60
+  (M(Moif)60,61
+a a64,65
+fib' fib'66,67
+
+./app/redmart1.hs,335
+module RedMart1 RedMart10,1
+type Status Status7,8
+type Point Point8,9
+type PathWithMap PathWithMap9,10
+main main11,12
+toArray toArray18,19
+findInDegreeZero findInDegreeZero22,23
+selectIndegreeZero selectIndegreeZero33,34
+findBestRoute findBestRoute61,62
+findPath findPath70,71
+comparePathMap comparePathMap99,100
+
+./app/ConduitPlaygroud.hs,240
+module ConduitPlaygroud ConduitPlaygroud1,2
+loudYield loudYield8,9
+loudSinkNull loudSinkNull12,13
+main main15,16
+leftOver leftOver20,21
+bug bug28,29
+stdinLines stdinLines36,37
+stdoutLines stdoutLines44,45
+main1 main151,52
+
+./app/Mysplices.hs,106
+module MySplices MySplices0,1
+myExp myExp5,6
+myDec myDec8,9
+myPat myPat12,13
+myType myType15,16
+
+./app/mergeSort.hs,98
+unsortList unsortList0,1
+mergeSort mergeSort3,4
+merge merge14,15
+quickSort quickSort23,24
+
+./app/rotCut.hs,65
+test test0,1
+permutation permutation2,3
+insert' insert'6,7
+
+./app/ProgressBar.hs,51
+module ProgressBar ProgressBar3,4
+main main7,8
+
+./app/MonadBase.hs,47
+module MonadBase MonadBase0,1
+main main5,6
+
+./app/cellularAutomate.hs,289
+module Ca Ca0,1
+data Tree Tree4,5
+data Tree = Node Node4,5
+data Tree = Node { left:left4,5
+data Tree = Node { left::Tree, mid:mid4,5
+data Tree = Node { left::Tree, mid::Char, right:right4,5
+data Tree = Node { left::Tree, mid::Char, right::Tree } | NilNil4,5
+value value7,8
+
+./app/Polymorphism.hs,238
+module Polymorphism Polymorphism0,1
+data Item Item3,4
+data Item  =Singular Singular3,4
+data Item  =Singular Int | Multi Multi3,4
+instance Show Show Item5,6
+    show show6,7
+encodeList encodeList9,10
+itemList itemList12,13
+
+./app/practical-resursion-schemes.hs,569
+data NatF NatF11,12
+    ZeroFZeroF12,13
+  | SuccF SuccF13,14
+data ListF' ListF'16,17
+    NilFNilF17,18
+  | ConsF ConsF18,19
+data TreeF TreeF21,22
+    EmptyFEmptyF22,23
+  | LeafF LeafF23,24
+  | NodeF NodeF24,25
+type Nat Nat27,28
+type List List29,30
+type Tree Tree31,32
+zero zero33,34
+succ succ36,37
+nil nil39,40
+cons cons42,43
+natsum natsum45,46
+filterL filterL50,51
+nat nat57,58
+natfac natfac63,64
+natpred natpred68,69
+tailL tailL73,74
+mergeSort mergeSort78,79
+oddIndices oddIndices89,90
+oddIndicesF oddIndicesF96,97
+
+./app/resouce.hs,99
+main main3,4
+doSomethingDangerous doSomethingDangerous15,16
+somethingElse somethingElse19,20
+
+./app/dependentType.hs,713
+data Z Z12,13
+data S S13,14
+data Nat Nat15,16
+    Zero Zero16,17
+    Succ Succ17,18
+instance P.Show P-Show (Nat a)19,20
+  show show20,21
+type family family23,24
+type instance instance24,25
+type family family27,28
+type instance instance28,29
+type family family31,32
+type instance instance32,33
+type family family36,37
+type instance instance37,38
+type family family41,42
+type instance instance42,43
+(+(+)47,48
+Zero Zero48,49
+(S(Succx)49,50
+(*(*)52,53
+Zero Zero53,54
+(S(Succx)54,55
+data Vec Vec56,57
+    VNil VNil57,58
+    VCons VCons58,59
+(+(++)60,61
+VNil VNil61,62
+VCons VCons62,63
+repeat repeat64,65
+headV headV69,70
+tailV tailV72,73
+zip zip75,76
+
+./app/splice-testing.hs,69
+two two7,8
+f f10,11
+mint mint13,14
+n=n16,17
+main main17,18
+
+./test/Spec.hs,15
+main main0,1

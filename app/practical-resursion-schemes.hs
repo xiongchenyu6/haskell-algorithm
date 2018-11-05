@@ -1,8 +1,13 @@
 {-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE LambdaCase    #-}
+{-# LANGUAGE TypeFamilies  #-}
 
-import Data.List.Ordered (merge)
-import Data.Functor.Foldable
-import Prelude hiding (Foldable, succ)
+import           Control.Comonad.Cofree
+import           Control.Monad.Free
+import           Data.Functor.Foldable
+import           Data.Functor.Foldable
+import           Data.List.Ordered      (merge)
+import           Prelude                hiding (Foldable, succ)
 
 data NatF r =
     ZeroF
@@ -68,7 +73,7 @@ natpred = para alg where
 
 tailL :: List a -> List a
 tailL = para alg where
-  alg NilF           = nil
+  alg NilF             = nil
   alg (ConsF _ (l, _)) = l
 
 mergeSort :: Ord a => [a] -> [a]
@@ -81,3 +86,19 @@ mergeSort = hylo alg coalg where
   coalg [x] = LeafF x
   coalg xs  = NodeF l r where
     (l, r) = splitAt (length xs `div` 2) xs
+
+oddIndices :: [a] -> [a]
+oddIndices = histo $ \case
+  Nil                           -> []
+  Cons h (_ :< Nil)             -> [h]
+  Cons h (_ :< Cons _ (t :< _)) -> h:t
+
+
+oddIndicesF :: [a] -> [a]
+oddIndicesF = futu coalg where
+  coalg list = case project list of
+    Nil      -> Nil
+    Cons x s -> Cons x $ do
+      return $ case project s of
+        Nil      -> s
+        Cons _ t -> t

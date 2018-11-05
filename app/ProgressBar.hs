@@ -1,7 +1,7 @@
 {-# language OverloadedStrings #-}
 {-# language PackageImports #-}
 
-module Main where
+module ProgressBar where
 
 import  System.ProgressBar
 

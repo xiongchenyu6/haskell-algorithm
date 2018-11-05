@@ -23,7 +23,7 @@ target = array ((0,0), (3, 3)) [((0,0),0),
 main = do
     let final = array ((0,0), (3, 3)) [((i, j), 0) | i <- [0..3], j <- [0..3]]
     let n = move target S.empty ([final],0)
-    putStrLn $ (show n)
+    print  n
 
 
 
@@ -34,7 +34,7 @@ compareA a1 a2 = a1 == a2
 move :: Array (Int,Int) Int -> Set (Array (Int,Int) Int) -> ([Array (Int,Int) Int] ,Int) -> Int
 move target set @acc(l,sum)
   | any (compareA target) l = sum
-  | otherwise = move target (i nL) (nL ,(sum +1))
+  | otherwise = move target (i nL) (nL ,sum +1)
   where
     newList = getAllNextMove <$> l >>= id
     i array= Prelude.foldl (\acc v -> S.insert v acc) set $ array

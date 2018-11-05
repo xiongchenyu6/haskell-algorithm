@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-
+module S where
 import Data.Tree
 import Text.HTML.Scalpel
 import Control.Applicative
@@ -9,9 +9,7 @@ import Network.Curl hiding (content)
 
 url = "https://seekingalpha.com/article/4132283-jabils-jbl-ceo-mark-mondello-q1-2018-results-earnings-call-transcript?all=true&find=conference%2520call"
 
-opts = [ CurlUserAgent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" ]
-
-e content = scrapeURL "https://www.baidu.com" content
+e content = scrapeURL "mp.weixin.qq.com/s/4_osNdJ8FlVuzSKf1MGXrg" content
 
 m content = scrapeURL "https://www.linkedin.com/in/chenyu-xiong-0abb6a91/" content
 
@@ -41,13 +39,14 @@ exampleHtml = "<html>\
 \    </body>\
 \</html>"
 
+-- >>> main
+
 main :: IO ()
 main = do
-    html <- scrapeURLWithOpts opts url $ htmls anySelector
-    maybe printError printHtml html
+    html <- getTitle "www.baidu.com"
+    print html
   where
     printError = putStrLn "Failed"
-    printHtml = mapM_ putStrLn
 
 catComment :: Scraper String String
 catComment =
@@ -112,3 +111,14 @@ lastElement = last . flatten
 -- treeRise [(Contents x)] lastValue tree = undefined
 -- treeRise (x:xs) lastValue tree = treeRise xs (lastElement newTree) newTree
 --             where newTree = treeRise [x] (lastElement tree) tree
+
+opts :: [CurlOption]
+opts = [ CurlFollowLocation True]
+
+getTitle :: URL -> IO (Maybe String)
+getTitle url = (scrapeURLWithConfig (Config opts utf8Decoder) url $ titleParser)
+
+titleParser :: Scraper String String
+titleParser = chroot ("head" @: []) $ do
+              title <- text $ "title" @: []
+              return title
