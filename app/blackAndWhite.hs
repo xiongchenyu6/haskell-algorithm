@@ -20,6 +20,7 @@ target = array ((0,0), (3, 3)) [((0,0),0),
                                 ((3,2),0),
                                 ((3,3),0)]
 
+main :: IO()
 main = do
     let final = array ((0,0), (3, 3)) [((i, j), 0) | i <- [0..3], j <- [0..3]]
     let n = move target S.empty ([final],0)
@@ -37,7 +38,7 @@ move target set @acc(l,sum)
   | otherwise = move target (i nL) (nL ,sum +1)
   where
     newList = getAllNextMove <$> l >>= id
-    i array= Prelude.foldl (\acc v -> S.insert v acc) set $ array
+    i = Prelude.foldl (\acc v -> S.insert v acc) set
     f::[Array (Int,Int) Int] -> [Array (Int,Int) Int]
     f array= L.filter (\x -> not (member x set)) array
     nL = f newList

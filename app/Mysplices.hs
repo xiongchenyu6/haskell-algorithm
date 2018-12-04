@@ -1,4 +1,4 @@
-module MySplices where
+module Mysplices where
 
 import Language.Haskell.TH
 

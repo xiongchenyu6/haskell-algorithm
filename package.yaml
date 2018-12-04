@@ -34,7 +34,6 @@ dependencies:
 - async
 - stm
 - ghc-prim
-- HList
 - template-haskell
 - terminal-progress-bar
 - ansi-terminal

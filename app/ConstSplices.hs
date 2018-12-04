@@ -2,7 +2,7 @@
 
 module ConstSplices where
 import Language.Haskell.TH
-import MySplices
+import Mysplices
 import Control.Monad (forM)
 import Data.List
 import Language.Haskell.TH.Quote

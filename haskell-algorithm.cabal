@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.0.
+-- This file has been generated from package.yaml by hpack version 0.32.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2364480ec627f1687f361095f7935d78508b815c633e6c9e3dc096e27707e823
+-- hash: e0aaa479e5f3112f16bac5518542a89bd968872500f306624edf77c046fe71eb
 
 name:           haskell-algorithm
 version:        0.1.0.0
@@ -27,15 +27,13 @@ source-repository head
 
 library
   exposed-modules:
-      CBasic
       Lib
   other-modules:
       Paths_haskell_algorithm
   hs-source-dirs:
       src
   build-depends:
-      HList
-    , ansi-terminal
+      ansi-terminal
     , array
     , async
     , base >=4.7 && <5
@@ -63,23 +61,23 @@ library
 executable haskell-algorithm-exe
   main-is: Main.hs
   other-modules:
+      ArrowPlaygroud
       ChurchList
       Concurrent
       ConduitPlaygroud
       ConstSplices
       Huffman
       MonadBase
+      MyMonad
       Mysplices
       Polymorphism
-      PrependToTuple
       ProgressBar
       Paths_haskell_algorithm
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      HList
-    , ansi-terminal
+      ansi-terminal
     , array
     , async
     , base >=4.7 && <5
@@ -114,8 +112,7 @@ test-suite haskell-algorithm-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      HList
-    , ansi-terminal
+      ansi-terminal
     , array
     , async
     , base >=4.7 && <5

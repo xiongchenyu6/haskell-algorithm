@@ -1,6 +1,5 @@
 unsortList = [6,5,2,3,8,1]
 
-
 mergeSort :: [Int] -> [Int]
 mergeSort l
   | (length l) > 1 = merge (mergeSort (frontHalf $ l)) (mergeSort (backHalf $ l)) []
