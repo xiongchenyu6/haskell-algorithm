@@ -2,12 +2,15 @@
 {-# LANGUAGE LambdaCase    #-}
 {-# LANGUAGE TypeFamilies  #-}
 
+module PracticalResursionSchemes where
+
 import           Control.Comonad.Cofree
 import           Control.Monad.Free
 import           Data.Functor.Foldable
-import           Data.Functor.Foldable
-import           Data.List.Ordered      (merge)
-import           Prelude                hiding (Foldable, succ)
+import           Data.List.Ordered              ( merge )
+import           Prelude                 hiding ( Foldable
+                                                , succ
+                                                )
 
 data NatF r =
     ZeroF
@@ -51,15 +54,13 @@ natsum = cata alg where
 filterL :: (a -> Bool) -> List a -> List a
 filterL p = cata alg where
   alg NilF = nil
-  alg (ConsF x xs)
-    | p x       = cons x xs
-    | otherwise = xs
+  alg (ConsF x xs) | p x       = cons x xs
+                   | otherwise = xs
 
 nat :: Int -> Nat
 nat = ana coalg where
-  coalg n
-    | n <= 0    = ZeroF
-    | otherwise = SuccF (n - 1)
+  coalg n | n <= 0    = ZeroF
+          | otherwise = SuccF (n - 1)
 
 natfac :: Nat -> Int
 natfac = para alg where
@@ -79,19 +80,18 @@ tailL = para alg where
 mergeSort :: Ord a => [a] -> [a]
 mergeSort = hylo alg coalg where
   alg EmptyF      = []
-  alg (LeafF c)   = [c]
+  alg (LeafF c  ) = [c]
   alg (NodeF l r) = merge l r
 
   coalg []  = EmptyF
   coalg [x] = LeafF x
-  coalg xs  = NodeF l r where
-    (l, r) = splitAt (length xs `div` 2) xs
+  coalg xs  = NodeF l r where (l, r) = splitAt (length xs `div` 2) xs
 
 oddIndices :: [a] -> [a]
 oddIndices = histo $ \case
   Nil                           -> []
-  Cons h (_ :< Nil)             -> [h]
-  Cons h (_ :< Cons _ (t :< _)) -> h:t
+  Cons h (_ :< Nil            ) -> [h]
+  Cons h (_ :< Cons _ (t :< _)) -> h : t
 
 
 oddIndicesF :: [a] -> [a]

@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 
+module DependentType where
+
 import Data.Kind
 import qualified Prelude as P(read, (+), Show, show)
 
@@ -47,12 +49,12 @@ type instance S n :~: S m = S (n :~: m)
 infixl 4 +
 (+) :: Nat n -> Nat m -> Nat (n :+: m)
 Zero + a = a
-(Succ x) + a = Succ (x Main.+ a)
+(Succ x) + a = Succ (x DependentType.+ a)
 
 infixl 5 *
 (*) :: Nat n -> Nat m -> Nat (n :*: m)
 Zero * _ = Zero
-(Succ x) * m = m Main.+ x Main.* m
+(Succ x) * m = m DependentType.+ x DependentType.* m
 
 data Vec a n where
     VNil :: Vec a Z
@@ -60,11 +62,11 @@ data Vec a n where
 
 (++) :: Vec a n -> Vec a m -> Vec a (n :+: m)
 VNil ++ ys = ys
-VCons x xs ++ y = VCons x (xs Main.++ y)
+VCons x xs ++ y = VCons x (xs DependentType.++ y)
 
 repeat :: Nat n -> Vec a m -> Vec a (n :*: m)
 repeat Zero _ = VNil
-repeat (Succ x) xs = xs Main.++ Main.repeat x xs
+repeat (Succ x) xs = xs DependentType.++ DependentType.repeat x xs
 
 
 headV :: Vec a (S n) -> a
@@ -76,4 +78,4 @@ tailV (VCons _ xs) = xs
 zip :: Vec a n -> Vec b m -> Vec (a, b) (n :~: m)
 zip VNil _ = VNil
 zip _ VNil = VNil
-zip (VCons x xs) (VCons y ys) = VCons (x, y) (Main.zip xs ys)
+zip (VCons x xs) (VCons y ys) = VCons (x, y) (DependentType.zip xs ys)

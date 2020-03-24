@@ -1,6 +1,6 @@
-module Ca where
+module CellularAutomate where
 
-import Text.ParserCombinators.Parsec
+import           Text.ParserCombinators.Parsec
 
 data Tree = Node { left::Tree, mid::Char, right::Tree } | Nil
 

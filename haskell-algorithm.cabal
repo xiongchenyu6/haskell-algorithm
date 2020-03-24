@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.32.0.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e0aaa479e5f3112f16bac5518542a89bd968872500f306624edf77c046fe71eb
+-- hash: a5ef2de0bd9580a91ceb33d84870dbf50b5972f3b66b9349693e34fc124d3f85
 
 name:           haskell-algorithm
 version:        0.1.0.0
@@ -27,7 +27,34 @@ source-repository head
 
 library
   exposed-modules:
+      ArrowPlaygroud
+      AvlTree
+      Benchmark
+      BlackAndWhite
+      CellularAutomate
+      ChurchList
+      Concurrent
+      ConduitPlaygroud
+      ConstSplices
+      DependentType
+      Hlist
+      Huffman
+      Learnyoneda
       Lib
+      MergeSort
+      MonadBase
+      MonedT
+      MyMonad
+      Mysplices
+      Parser
+      Polymorphism
+      PracticalResursionSchemes
+      Profunctor
+      RandomDie
+      Redmart1
+      Resouce
+      RotCut
+      Sraple
   other-modules:
       Paths_haskell_algorithm
   hs-source-dirs:
@@ -46,7 +73,7 @@ library
     , lens
     , mtl
     , parsec
-    , pretty-simple >=2.0
+    , primitive
     , profunctors
     , random
     , recursion-schemes
@@ -54,24 +81,13 @@ library
     , scalpel
     , stm
     , template-haskell
-    , terminal-progress-bar
     , text
+    , vector
   default-language: Haskell2010
 
 executable haskell-algorithm-exe
   main-is: Main.hs
   other-modules:
-      ArrowPlaygroud
-      ChurchList
-      Concurrent
-      ConduitPlaygroud
-      ConstSplices
-      Huffman
-      MonadBase
-      MyMonad
-      Mysplices
-      Polymorphism
-      ProgressBar
       Paths_haskell_algorithm
   hs-source-dirs:
       app
@@ -91,7 +107,7 @@ executable haskell-algorithm-exe
     , lens
     , mtl
     , parsec
-    , pretty-simple >=2.0
+    , primitive
     , profunctors
     , random
     , recursion-schemes
@@ -99,8 +115,8 @@ executable haskell-algorithm-exe
     , scalpel
     , stm
     , template-haskell
-    , terminal-progress-bar
     , text
+    , vector
   default-language: Haskell2010
 
 test-suite haskell-algorithm-test
@@ -126,7 +142,7 @@ test-suite haskell-algorithm-test
     , lens
     , mtl
     , parsec
-    , pretty-simple >=2.0
+    , primitive
     , profunctors
     , random
     , recursion-schemes
@@ -134,6 +150,6 @@ test-suite haskell-algorithm-test
     , scalpel
     , stm
     , template-haskell
-    , terminal-progress-bar
     , text
+    , vector
   default-language: Haskell2010
