@@ -1,10 +1,17 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module RotCut where
-test = "ab"
+
+import           Control.Monad
+
+test = "hat"
 
 permutation :: String -> [String]
-permutation []       = [[]]
-permutation (x : xs) = insert' x =<< (permutation xs)
+permutation = foldr ((=<<) . insert') [[]]
+
 
 insert' :: Char -> String -> [String]
 insert' c []         = [[c]]
-insert' c l@(x : xs) = (c : l) : ((x :) <$> (insert' c xs))
+insert' c l@(x : xs) = (c : l) : ((x :) <$> insert' c xs)
+
+main = forM_ (permutation test) putStrLn

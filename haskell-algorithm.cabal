@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a5ef2de0bd9580a91ceb33d84870dbf50b5972f3b66b9349693e34fc124d3f85
+-- hash: dd83fde193892b594f3ad2165f8db8ff774c0c79745be42505ef83ec9df9a3cc
 
 name:           haskell-algorithm
 version:        0.1.0.0
@@ -37,6 +37,7 @@ library
       ConduitPlaygroud
       ConstSplices
       DependentType
+      DifferentiableFunctor
       Hlist
       Huffman
       Learnyoneda
@@ -48,7 +49,6 @@ library
       Mysplices
       Parser
       Polymorphism
-      PracticalResursionSchemes
       Profunctor
       RandomDie
       Redmart1
@@ -64,6 +64,7 @@ library
     , array
     , async
     , base >=4.7 && <5
+    , bifunctors
     , conduit
     , containers
     , curl
@@ -97,6 +98,7 @@ executable haskell-algorithm-exe
     , array
     , async
     , base >=4.7 && <5
+    , bifunctors
     , conduit
     , containers
     , curl
@@ -132,6 +134,7 @@ test-suite haskell-algorithm-test
     , array
     , async
     , base >=4.7 && <5
+    , bifunctors
     , conduit
     , containers
     , curl
