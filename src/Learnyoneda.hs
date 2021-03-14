@@ -2,10 +2,10 @@
 
 module Learnyoneda where
 
-imager :: forall r . ((Bool -> r) -> [r])
+imager :: forall r. ((Bool -> r) -> [r])
 imager iffie = fmap iffie [True, False, True, True]
 
-data Color = Red | Green | Blue  deriving Show
+data Color = Red | Green | Blue deriving (Show)
 
 colorMap :: Bool -> Color
 colorMap x = if x then Blue else Red
